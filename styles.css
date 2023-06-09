@@ -3,3 +3,40 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#container {
+    width: 300px;
+    outline: 1px solid black;
+
+}
+
+#operand-display {
+    height: 100px;
+    flex-direction: column;
+}
+
+#previous-operand, #current-operand {
+    height: 50%;
+    text-align: right
+}
+
+#button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.btn{
+    padding: 10px 0;
+    border: none;
+}
+
+#equal-btn {
+    grid-area: 5 / 2/ 6/ 5;
+}
