@@ -17,6 +17,14 @@ function appendNumber (number) {
     currentOperandDisplay.textContent = currentOperand
 }
 
+function chooseOperation (operator) {
+    previousOperand = currentOperandDisplay.textContent
+    operation = operator
+    previousOperandDisplay.textContent = `${previousOperand} ${operation}`
+    currentOperand = ""
+    currentOperandDisplay.textContent = currentOperand
+}
+
 
 numberBtn.forEach(button => {
     button.addEventListener('click', () => {
@@ -24,6 +32,11 @@ numberBtn.forEach(button => {
     })
 })
 
+operationBtn.forEach(button => {
+    button.addEventListener('click', () => {
+        chooseOperation(button.innerText)
+    })
+})
 
 function add (a, b) {
     return a + b
