@@ -57,9 +57,9 @@ function compute (operator, previousOperand, currentOperand) {
             return add(prev, current)
         case "-":
             return subtraction(prev, current)           
-        case "*":
+        case "x":
             return multiplication(prev, current)
-        case "/":
+        case "÷":
             return division(prev, current)
     }
 }
