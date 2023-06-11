@@ -33,15 +33,18 @@ function displayResult () {
 }
 
 function compute (operator, previousOperand, currentOperand) {
+    let prev = parseFloat(previousOperand)
+    let current = parseFloat(currentOperand)
+
     switch (operator) {
         case "+":
-            return add(previousOperand, currentOperand)
+            return add(prev, current)
         case "-":
-            return subtraction(previousOperand, currentOperand)           
+            return subtraction(prev, current)           
         case "*":
-            return multiplication(previousOperand, currentOperand)
+            return multiplication(prev, current)
         case "/":
-            return division(previousOperand, currentOperand)
+            return division(prev, current)
     }
 }
 
