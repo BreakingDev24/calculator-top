@@ -1,4 +1,5 @@
 const previousOperandDisplay = document.getElementById('previous-operand');
+const currentOperandDisplay = document.getElementById('current-operand')
 const numberBtn = document.querySelectorAll('[data-number]')
 const operationBtn = document.querySelectorAll('[data-operation')
 const equalsBtn = document.querySelector('[data-equals')
@@ -9,6 +10,19 @@ let previousOperand = ""
 let currentOperand = ""
 let operation = ""
 let result
+
+
+function appendNumber (number) {
+    currentOperand = currentOperand.toString() + number.toString()
+    currentOperandDisplay.textContent = currentOperand
+}
+
+
+numberBtn.forEach(button => {
+    button.addEventListener('click', () => {
+        appendNumber(button.innerText)
+    })
+})
 
 
 function add (a, b) {
