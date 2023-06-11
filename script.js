@@ -34,6 +34,15 @@ function displayResult () {
     currentOperandDisplay.textContent = result
 }
 
+function clearAll () {
+    previousOperand = "";
+    currentOperand = ""
+    operation = null
+
+    previousOperandDisplay.textContent = ""
+    currentOperandDisplay.textContent = ""
+}
+
 function compute (operator, previousOperand, currentOperand) {
     let prev = parseFloat(previousOperand)
     let current = parseFloat(currentOperand)
@@ -64,6 +73,9 @@ operationBtn.forEach(button => {
 })
 
 equalsBtn.addEventListener('click', displayResult)
+
+allClearBtn.addEventListener('click', clearAll)
+
 
 
 function add (a, b) {
