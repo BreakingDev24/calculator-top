@@ -43,6 +43,11 @@ function clearAll () {
     currentOperandDisplay.textContent = ""
 }
 
+function deleteLast () {
+    currentOperand = currentOperandDisplay.textContent.toString().slice(0, -1)
+    currentOperandDisplay.textContent = currentOperand
+}
+
 function compute (operator, previousOperand, currentOperand) {
     let prev = parseFloat(previousOperand)
     let current = parseFloat(currentOperand)
@@ -76,7 +81,7 @@ equalsBtn.addEventListener('click', displayResult)
 
 allClearBtn.addEventListener('click', clearAll)
 
-
+deleteBtn.addEventListener('click', deleteLast)
 
 function add (a, b) {
     return a + b
