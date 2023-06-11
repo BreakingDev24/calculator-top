@@ -27,6 +27,7 @@ function chooseOperation (operator) {
 }
 
 function displayResult () {
+    if(previousOperand === "") return
     result = compute(operation, previousOperand, currentOperand)
     previousOperandDisplay.textContent = `${previousOperand} ${operation} ${currentOperand} =`
     currentOperand = result
