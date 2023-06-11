@@ -25,6 +25,26 @@ function chooseOperation (operator) {
     currentOperandDisplay.textContent = currentOperand
 }
 
+function displayResult () {
+    result = compute(operation, previousOperand, currentOperand)
+    previousOperandDisplay.textContent = `${previousOperand} ${operation} ${currentOperand} =`
+    currentOperand = result
+    currentOperandDisplay.textContent = result
+}
+
+function compute (operator, previousOperand, currentOperand) {
+    switch (operator) {
+        case "+":
+            return add(previousOperand, currentOperand)
+        case "-":
+            return subtraction(previousOperand, currentOperand)           
+        case "*":
+            return multiplication(previousOperand, currentOperand)
+        case "/":
+            return division(previousOperand, currentOperand)
+    }
+}
+
 
 numberBtn.forEach(button => {
     button.addEventListener('click', () => {
@@ -37,6 +57,9 @@ operationBtn.forEach(button => {
         chooseOperation(button.innerText)
     })
 })
+
+equalsBtn.addEventListener('click', displayResult)
+
 
 function add (a, b) {
     return a + b
