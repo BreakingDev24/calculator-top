@@ -19,12 +19,23 @@ body {
 
 #operand-display {
     height: 100px;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
 }
 
 #previous-operand, #current-operand {
-    height: 50%;
     text-align: right
+}
+
+#previous-operand {
+    font-size: 1.1rem;
+}
+
+#current-operand {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 #button-container {
