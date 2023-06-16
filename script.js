@@ -14,6 +14,7 @@ let result
 
 function appendNumber (number) {
     if(number === "." && currentOperand.includes('.')) return
+    if(currentOperand.length === 10) return
     currentOperand = currentOperand.toString() + number.toString()
     currentOperandDisplay.textContent = currentOperand
 }
@@ -30,6 +31,9 @@ function displayResult () {
     if(previousOperand === "") return
     result = compute(operation, previousOperand, currentOperand)
     previousOperandDisplay.textContent = `${previousOperand} ${operation} ${currentOperand} =`
+    if(result.toString().length > 10) {
+        result = result.toExponential(2)
+    }
     currentOperand = result
     currentOperandDisplay.textContent = result
 }
@@ -82,6 +86,8 @@ equalsBtn.addEventListener('click', displayResult)
 allClearBtn.addEventListener('click', clearAll)
 
 deleteBtn.addEventListener('click', deleteLast)
+
+
 
 function add (a, b) {
     return a + b
