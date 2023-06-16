@@ -24,11 +24,13 @@ function chooseOperation (operator) {
     operation = operator
     previousOperandDisplay.textContent = `${previousOperand} ${operation}`
     currentOperand = ""
+    result = ""
     currentOperandDisplay.textContent = currentOperand
 }
 
 function displayResult () {
     if(previousOperand === "") return
+    if(result) return
     result = compute(operation, previousOperand, currentOperand)
     previousOperandDisplay.textContent = `${previousOperand} ${operation} ${currentOperand} =`
     if(result.toString().length > 10) {
@@ -41,6 +43,7 @@ function displayResult () {
 function clearAll () {
     previousOperand = "";
     currentOperand = ""
+    result = ""
     operation = null
 
     previousOperandDisplay.textContent = ""
