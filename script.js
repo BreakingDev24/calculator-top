@@ -56,7 +56,7 @@ function clearAll () {
 }
 
 function deleteLast () {
-    // if (result) return
+    if (result) return
     currentOperand = currentOperandDisplay.textContent.toString().slice(0, -1)
     currentOperandDisplay.textContent = currentOperand
 }
