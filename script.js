@@ -14,7 +14,7 @@ let result
 
 function appendNumber (number) {
     if(number === "." && currentOperand.includes('.')) return
-    if(currentOperand.length === 10) return
+    if(currentOperand.length === 13) return
     currentOperand = currentOperand.toString() + number.toString()
     currentOperandDisplay.textContent = currentOperand
 }
@@ -33,9 +33,14 @@ function displayResult () {
     if(result) return
     result = compute(operation, previousOperand, currentOperand)
     previousOperandDisplay.textContent = `${previousOperand} ${operation} ${currentOperand} =`
-    if(result.toString().length > 10) {
+    
+    if(result.toString().includes('.') && result.toString().length > 10) {
+        result = Math.trunc(result * (10 ** 10)) / (10 ** 10)
+    }else if(result.toString().length > 13) {
         result = result.toExponential(2)
-    }
+    } 
+    
+
     currentOperand = result
     currentOperandDisplay.textContent = result
 }
@@ -51,6 +56,7 @@ function clearAll () {
 }
 
 function deleteLast () {
+    // if (result) return
     currentOperand = currentOperandDisplay.textContent.toString().slice(0, -1)
     currentOperandDisplay.textContent = currentOperand
 }
@@ -67,6 +73,10 @@ function compute (operator, previousOperand, currentOperand) {
         case "x":
             return multiplication(prev, current)
         case "÷":
+            if(current == 0){
+                alert("You can't divide by 0")
+                return
+            }
             return division(prev, current)
     }
 }
