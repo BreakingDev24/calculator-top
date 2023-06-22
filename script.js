@@ -94,6 +94,41 @@ operationBtn.forEach(button => {
     })
 })
 
+//keyboard support
+function keyboardInput (e) {
+    if (e.key <=9 || e.key === '.') appendNumber(e.key)
+    switch (e.key){
+        case '+':
+            chooseOperation('+')
+            break
+        case '-':
+            chooseOperation('-')
+            break
+        case '*':
+            chooseOperation('x')
+            break
+        case '/':
+            e.preventDefault()
+            chooseOperation('÷')
+            break
+        case '=':
+            displayResult()
+            break
+        case 'Enter':
+            displayResult()
+            break
+        case 'Delete':
+            clearAll()
+            break
+        case 'Backspace':
+            deleteLast()
+    }
+
+}
+
+window.addEventListener('keydown', keyboardInput)
+//
+
 equalsBtn.addEventListener('click', displayResult)
 
 allClearBtn.addEventListener('click', clearAll)
