@@ -14,6 +14,7 @@ let result
 
 function appendNumber (number) {
     if(number === "." && currentOperand.includes('.')) return
+    if(result) return
     if(currentOperand.length === 13) return
     currentOperand = currentOperand.toString() + number.toString()
     currentOperandDisplay.textContent = currentOperand
